@@ -15,12 +15,12 @@ public class UIManager : MonoBehaviour
             Destroy(o);
         }
 
-        //infos.users = infos.users.OrderByDescending(x => x.score).ToList();
+        List<User> users = infos.users.OrderByDescending(x => x.score).ToList();
         Objects = new List<GameObject>();
-        for (int i = 0; i < infos.users.Count; i++)
+        for (int i = 0; i < users.Count; i++)
         {
             UserElement user = Instantiate(Prefab, parent).GetComponent<UserElement>();
-            user.SetInfo(infos.users[i].name, infos.users[i].score);
+            user.SetInfo(users[i].name, users[i].score);
             Objects.Add(user.gameObject);
         }
     }
