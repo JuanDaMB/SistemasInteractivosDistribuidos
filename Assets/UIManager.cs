@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour
             Destroy(o);
         }
 
+        infos.users = infos.users.OrderByDescending(x => x.score).ToList();
         Objects = new List<GameObject>();
         for (int i = 0; i < infos.users.Count; i++)
         {
