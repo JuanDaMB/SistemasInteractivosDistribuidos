@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
             Destroy(o);
         }
 
-        List<User> users = infos.users.OrderByDescending(x => x.score).ToList();
+        List<User> users = infos.users;
+        users=users.OrderByDescending(x => x.score).ToList();
         Objects = new List<GameObject>();
         for (int i = 0; i < users.Count; i++)
         {
