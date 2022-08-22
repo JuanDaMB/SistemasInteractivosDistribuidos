@@ -1874,8 +1874,8 @@ MonoBehaviour:
   uiManager: {fileID: 765722900}
   alert: {fileID: 363205144}
   LoginScreen: {fileID: 1967231121}
-  GameScreen: {fileID: 0}
-  tokenInput: {fileID: 0}
+  GameScreen: {fileID: 2048972897}
+  tokenInput: {fileID: 116126656}
   user:
     username: 
     password: 
