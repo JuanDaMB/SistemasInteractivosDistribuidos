@@ -8,8 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/UserElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Actividad2/ButtonLogic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -70,7 +69,8 @@
       <workItem from="1659894866673" duration="3050000" />
       <workItem from="1660784146056" duration="627000" />
       <workItem from="1660835753735" duration="2358000" />
-      <workItem from="1661120121275" duration="7132000" />
+      <workItem from="1661120121275" duration="7730000" />
+      <workItem from="1661719352059" duration="1735000" />
     </task>
     <servers />
   </component>
