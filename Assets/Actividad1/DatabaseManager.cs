@@ -27,10 +27,8 @@ public class DatabaseManager : MonoBehaviour
             ExitSession();
             return;
         }
-        Buttons.SetActive(false);
-        Actividad2.SetActive(true);
-        LoginScreen.SetActive(false);
-        GameScreen.SetActive(true);
+
+        StartCoroutine(ValidToken(null, true));
     }
 
     public void GetDataButton()
@@ -124,7 +122,7 @@ public class DatabaseManager : MonoBehaviour
         PlayerPrefs.SetString("token",value);
     }
 
-    public IEnumerator ValidToken(IEnumerator callback)
+    public IEnumerator ValidToken(IEnumerator callback, bool startLogin = false)
     {
         string path = urlAuth+"api/usuarios/"+currentUser.username;
         Debug.Log(path);
@@ -138,17 +136,37 @@ public class DatabaseManager : MonoBehaviour
             case UnityWebRequest.Result.InProgress:
                 break;
             case UnityWebRequest.Result.Success:
-                StartCoroutine(callback);
-                LoginScreen.SetActive(false);
-                GameScreen.SetActive(true);
+                if (startLogin)
+                {
+                    Buttons.SetActive(false);
+                    Actividad2.SetActive(true);
+                    LoginScreen.SetActive(false);
+                    GameScreen.SetActive(true);
+                }
+                else
+                {
+                    StartCoroutine(callback);
+                    LoginScreen.SetActive(false);
+                    GameScreen.SetActive(true);
+                }
                 break;
             case UnityWebRequest.Result.ConnectionError:
             case UnityWebRequest.Result.ProtocolError:
             case UnityWebRequest.Result.DataProcessingError:
-                alert.text = "token no valido"; 
-                Debug.Log(www.error);
-                LoginScreen.SetActive(true);
-                GameScreen.SetActive(false);
+                if (startLogin)
+                {
+                    Buttons.SetActive(true);
+                    Actividad2.SetActive(false);
+                    LoginScreen.SetActive(true);
+                    GameScreen.SetActive(false);
+                }
+                else
+                {
+                    alert.text = "token no valido"; 
+                    Debug.Log(www.error);
+                    LoginScreen.SetActive(true);
+                    GameScreen.SetActive(false);
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
